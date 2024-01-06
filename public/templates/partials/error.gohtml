@@ -1,0 +1,8 @@
+{{define "error"}}
+    <div class="mt-6 flex flex-col items-center justify-center">
+        <div class="w-1/4 p-2 border-red-700 border-2 rounded">
+            <p><b>Error Code</b> | {{.ErrorCode}}</p>
+            <p><b>Reason</b> | {{.ErrorReason}}</p>
+        </div>
+    </div>
+{{end}}
