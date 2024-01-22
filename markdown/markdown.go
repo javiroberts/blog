@@ -1,12 +1,23 @@
 package markdown
 
 import (
+	"fmt"
 	"github.com/gomarkdown/markdown"
 	"github.com/gomarkdown/markdown/html"
 	"github.com/gomarkdown/markdown/parser"
+	"html/template"
+	"os"
 )
 
-func MDToHTML(md []byte) []byte {
+func LoadMarkdownPost(slug string) template.HTML {
+	content, err := os.ReadFile(fmt.Sprintf("public/markdown/%s.md", slug))
+	if err != nil {
+		panic(err)
+	}
+	return template.HTML(mdToHTML(content))
+}
+
+func mdToHTML(md []byte) []byte {
 	extensions := parser.CommonExtensions | parser.AutoHeadingIDs | parser.NoEmptyLineBeforeBlock
 	p := parser.NewWithExtensions(extensions)
 	doc := p.Parse(md)
