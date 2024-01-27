@@ -11,7 +11,9 @@
 [//]: # (summary: A detailed breakdown on how to deploy an AKS cluster using Terraform.)
 [//]: # (---)
 
-Hello and welcome to this blog post! Are you looking to deploy an AKS cluster in a simple and efficient way? Well, you're in luck! In this post, we will be exploring how to use Terraform to deploy an AKS cluster in just a few easy steps. By the end of this post, you will have a fully functional AKS cluster up and running, ready to deploy your applications and services. So, let's dive in and get started!
+# Deploying an AKS Cluster Using Terraform
+
+Hello and welcome to this blog post! In this post, we will be exploring how to use Terraform to deploy an AKS cluster in just a few easy steps. By the end of this post, you will have a fully functional AKS cluster up and running, ready to deploy your applications and services. So, let's get started!
 
 ## Requirements
 

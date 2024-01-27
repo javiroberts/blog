@@ -1,0 +1,17 @@
+{{define "list"}}
+<div class="mt-6 flex flex-col items-center justify-center">
+    <ul class="w-2/5">
+        {{range .List}}
+        <a href="/posts/{{.Slug}}">
+            <li class="mb-3 px-4 py-2 rounded-md hover:bg-slate-100">
+                <span class="flex flex-row items-center justify-between">
+                    <h1 class="text-lg font-medium">{{.Title}}</h1>
+                    <pre class="text-xs font-light text-slate-700">2023-05-15</pre>
+                </span>
+                <p class="font-light">{{.Excerpt}}</p>
+            </li>
+        </a>
+        {{end}}
+    </ul>
+</div>
+{{end}}

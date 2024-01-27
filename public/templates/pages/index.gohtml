@@ -3,6 +3,7 @@
     {{template "head"}}
     <body>
         {{template "profile"}}
+        <div hx-trigger="load" hx-get="/posts"></div>
         {{template "footer"}}
     </body>
 </html>
