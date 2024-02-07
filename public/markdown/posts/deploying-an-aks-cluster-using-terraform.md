@@ -1,15 +1,16 @@
-[//]: # (---)
-[//]: # (title: "Deploying an AKS Cluster Using Terraform")
-[//]: # (date: 2023-03-13T14:10:29-03:00)
-[//]: # (tags:)
-[//]: # (  - development)
-[//]: # (  - devops)
-[//]: # (  - infrastructure)
-[//]: # (categories:)
-[//]: # (  - tech)
-[//]: # (draft: false)
-[//]: # (summary: A detailed breakdown on how to deploy an AKS cluster using Terraform.)
-[//]: # (---)
+---
+title: "Deploying an AKS Cluster Using Terraform"
+date: "2023-03-13"
+author: "Javier Roberts"
+tags:
+  - development
+  - devops
+  - infrastructure
+categories:
+  - tech
+draft: false
+summary: "A detailed breakdown on how to deploy an AKS cluster using Terraform."
+---
 
 # Deploying an AKS Cluster Using Terraform
 

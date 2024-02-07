@@ -6,7 +6,6 @@ import (
 	"github.com/labstack/echo/v4"
 	"net/http"
 	"os"
-	"time"
 )
 
 func GetByID(c echo.Context) error {
@@ -19,31 +18,21 @@ func GetAboutPage(c echo.Context) error {
 }
 
 func GetPostList(c echo.Context) error {
-	testList := buildPostList("public/markdown/posts/")
-	return c.Render(http.StatusOK, "list", PostListSchema{List: testList})
+	postList := buildPostList("public/markdown/posts/")
+	return c.Render(http.StatusOK, "list", PostListSchema{List: postList})
 }
 
 func buildPostList(dir string) []Post {
-	fmt.Println(os.ReadDir(dir))
-
-	return []Post{
-		{
-			Author:      "Javier Roberts",
-			Title:       "Golang in 2024",
-			Excerpt:     "The panorama to come for go in 2024",
-			Article:     "",
-			Slug:        "deploying-an-aks-cluster-using-terraform",
-			Published:   time.Now(),
-			LastUpdated: time.Now(),
-		},
-		{
-			Author:      "Javier Roberts",
-			Title:       "Future JS",
-			Excerpt:     "How Javascript is supposed to evolve in the near future",
-			Article:     "",
-			Slug:        "lessons-learned-from-scaling-a-startup",
-			Published:   time.Now(),
-			LastUpdated: time.Now(),
-		},
+	dirEntries, err := os.ReadDir(dir)
+	if err != nil {
+		panic(err)
 	}
+
+	p := Post{}
+	ps := []Post{}
+	for _, slug := range dirEntries {
+		p.Load(slug.Name())
+		ps = append(ps, p)
+	}
+	return ps
 }

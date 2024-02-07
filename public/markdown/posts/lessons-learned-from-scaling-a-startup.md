@@ -1,14 +1,15 @@
-[//]: # (---)
-[//]: # (title: "Lessons Learned From Scaling a Startup")
-[//]: # (date: 2023-04-27T17:53:10-03:00)
-[//]: # (tags:)
-[//]: # (  - career)
-[//]: # (  - startups)
-[//]: # (categories:)
-[//]: # (  - general)
-[//]: # (draft: false)
-[//]: # (summary: A post condensing my professional journey of the last 5 years.)
-[//]: # (---)
+---
+title: "Lessons Learned From Scaling a Startup"
+date: "2023-04-27"
+author: "Javier Roberts"
+tags:
+  - career
+  - startups
+categories:
+  - general
+draft: false
+summary: "A post condensing my professional journey of the last 5 years."
+---
 
 # Lessons Learned from Scaling a Startup
 
