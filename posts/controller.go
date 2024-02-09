@@ -9,15 +9,6 @@ import (
 	"path/filepath"
 )
 
-//func GetByID(c echo.Context) error {
-//	slug := c.Param("slug")
-//	return c.Render(http.StatusOK, "post", PostSchema{Article: markdown.LoadMarkdownPost(fmt.Sprintf("posts/%s", slug))})
-//}
-
-//func GetAboutPage(c echo.Context) error {
-//	return c.Render(http.StatusOK, "post", PostSchema{Article: markdown.LoadMarkdownPost("about")})
-//}
-
 func GetPost(c echo.Context) error {
 	dir := "public/markdown/posts/"
 	slug := c.Param("slug")

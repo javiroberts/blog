@@ -7,14 +7,6 @@ import (
 	"html/template"
 )
 
-//func LoadMarkdownPost(slug string) template.HTML {
-//	content, err := os.ReadFile(fmt.Sprintf("public/markdown/%s.md", slug))
-//	if err != nil {
-//		panic(err)
-//	}
-//	return template.HTML(mdToHTML(content))
-//}
-
 func LoadMDArticle(content string) template.HTML {
 	//content, err := os.ReadFile(fmt.Sprintf("public/markdown/%s.md", slug))
 	//if err != nil {
