@@ -2,12 +2,8 @@ package posts
 
 import (
 	"backend/markdown"
-	"fmt"
 	yaml2 "gopkg.in/yaml.v3"
 	"html/template"
-	"os"
-	"path/filepath"
-	"regexp"
 )
 
 type Post struct {
@@ -22,20 +18,11 @@ type Post struct {
 	Article    template.HTML
 }
 
-func (p *Post) Load(slug string) {
-	content, err := os.ReadFile(fmt.Sprintf("public/markdown/posts/%s", slug))
+func (p *Post) WithMarkdown(file markdown.MDFile) {
+	err := yaml2.Unmarshal([]byte(file.FrontMatter), &p)
 	if err != nil {
-		panic(err)
+		panic(err.Error())
 	}
-
-	r := regexp.MustCompile(`---((?s).*)---`)
-	yaml := r.FindStringSubmatch(string(content))
-	article := r.ReplaceAllString(string(content), "")
-
-	err = yaml2.Unmarshal([]byte(yaml[0]), &p)
-
-	ext := filepath.Ext(slug)
-	p.Slug = slug[0 : len(slug)-len(ext)]
-
-	p.Article = markdown.LoadMDArticle(article)
+	p.Slug = file.Slug
+	p.Article = markdown.LoadMDArticle(file.Body)
 }

@@ -19,9 +19,9 @@ func registerRoutes(e *echo.Echo) {
 	e.GET("/", func(c echo.Context) error {
 		return c.Render(http.StatusOK, "index", nil)
 	})
-	e.GET("/about", posts.GetAboutPage)
+	//e.GET("/about", posts.GetAboutPage)
 	e.GET("/posts", posts.GetPostList)
-	e.GET("/posts/:slug", posts.GetByID)
+	e.GET("/posts/:slug", posts.GetPost)
 	e.GET("/error/404", func(c echo.Context) error {
 		return c.Render(http.StatusNotFound, "404", errorTemplate{
 			ErrorCode:   http.StatusNotFound,

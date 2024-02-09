@@ -1,9 +1,7 @@
 package posts
 
-import "html/template"
-
 type PostSchema struct {
-	Article template.HTML
+	Post Post
 }
 
 type PostListSchema struct {
