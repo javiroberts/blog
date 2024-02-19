@@ -11,16 +11,25 @@ import (
 func GetAboutPage(c echo.Context) error {
 	dir := "public/markdown/"
 	slug := "about"
-	page := loadPage(dir, slug)
+	err, page := loadPage(dir, slug)
+	if err != nil {
+		return err
+	}
 	return c.Render(http.StatusOK, "about", PageSchema{Page: page})
 }
 
-func loadPage(dir, slug string) Page {
+func loadPage(dir, slug string) (error, Page) {
 	f := markdown.MDFile{}
-	f.Load(filepath.Join(dir, fmt.Sprintf("%s.md", slug)))
+	err := f.Load(filepath.Join(dir, fmt.Sprintf("%s.md", slug)))
+	if err != nil {
+		return err, Page{}
+	}
 
 	p := Page{}
-	p.WithMarkdown(f)
+	err = p.WithMarkdown(f)
+	if err != nil {
+		return err, Page{}
+	}
 
-	return p
+	return nil, p
 }

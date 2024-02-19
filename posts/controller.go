@@ -12,29 +12,40 @@ import (
 func GetPost(c echo.Context) error {
 	dir := "public/markdown/posts/"
 	slug := c.Param("slug")
-	post := loadPost(dir, slug)
+	err, post := loadPost(dir, slug)
+	if err != nil {
+		return echo.NewHTTPError(http.StatusInternalServerError, "Internal Server Error")
+	}
 	return c.Render(http.StatusOK, "post", PostSchema{Post: post})
 }
 
 func GetPostList(c echo.Context) error {
-	postList := loadPostList("public/markdown/posts/")
+	err, postList := loadPostList("public/markdown/posts/")
+	if err != nil {
+		return echo.NewHTTPError(http.StatusInternalServerError, "Internal Server Error")
+	}
 	return c.Render(http.StatusOK, "list", PostListSchema{List: postList})
 }
 
-func loadPost(dir, slug string) Post {
+// TODO: refactor for better error handling
+func loadPost(dir, slug string) (error, Post) {
 	f := markdown.MDFile{}
-	f.Load(filepath.Join(dir, fmt.Sprintf("%s.md", slug)))
+	err := f.Load(filepath.Join(dir, fmt.Sprintf("%s.md", slug)))
+	if err != nil {
+		return err, Post{}
+	}
 
 	p := Post{}
 	p.WithMarkdown(f)
 
-	return p
+	return nil, p
 }
 
-func loadPostList(dir string) []Post {
+// TODO: refactor for better error handling
+func loadPostList(dir string) (error, []Post) {
 	dirEntries, err := os.ReadDir(dir)
 	if err != nil {
-		panic(err)
+		return err, []Post{}
 	}
 
 	ps := []Post{}
@@ -46,5 +57,5 @@ func loadPostList(dir string) []Post {
 		p.WithMarkdown(f)
 		ps = append(ps, p)
 	}
-	return ps
+	return nil, ps
 }

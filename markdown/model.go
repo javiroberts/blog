@@ -13,10 +13,10 @@ type MDFile struct {
 	Body        string
 }
 
-func (f *MDFile) Load(path string) {
+func (f *MDFile) Load(path string) error {
 	content, err := os.ReadFile(path)
 	if err != nil {
-		panic(err)
+		return err
 	}
 
 	r := regexp.MustCompile(`---((?s).*)---`)
@@ -28,4 +28,6 @@ func (f *MDFile) Load(path string) {
 	f.Slug = path[strings.LastIndex(path, "/")+1:]
 	ext := filepath.Ext(f.Slug)
 	f.Slug = f.Slug[0 : len(f.Slug)-len(ext)]
+
+	return nil
 }
