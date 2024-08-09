@@ -1,9 +1,10 @@
 package posts
 
 import (
-	"backend/markdown"
-	yaml2 "gopkg.in/yaml.v3"
+	"blog/markdown"
 	"html/template"
+
+	yaml2 "gopkg.in/yaml.v3"
 )
 
 type Post struct {

@@ -1,11 +1,12 @@
 package main
 
 import (
-	"backend/errors"
-	"backend/pages"
-	"backend/posts"
-	"github.com/labstack/echo/v4"
+	"blog/errors"
+	"blog/pages"
+	"blog/posts"
 	"net/http"
+
+	"github.com/labstack/echo/v4"
 )
 
 func registerStaticRoutes(e *echo.Echo) {

@@ -1,12 +1,13 @@
 package posts
 
 import (
-	"backend/markdown"
+	"blog/markdown"
 	"fmt"
-	"github.com/labstack/echo/v4"
 	"net/http"
 	"os"
 	"path/filepath"
+
+	"github.com/labstack/echo/v4"
 )
 
 func GetPost(c echo.Context) error {

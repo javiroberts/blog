@@ -1,7 +1,7 @@
 package pages
 
 import (
-	"backend/markdown"
+	"blog/markdown"
 	"html/template"
 )
 

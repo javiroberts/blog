@@ -1,12 +1,13 @@
 package main
 
 import (
-	"backend/template"
+	"blog/template"
+	"os"
+
 	"github.com/labstack/echo/v4"
 	"github.com/labstack/echo/v4/middleware"
 	"github.com/rs/zerolog"
 	"golang.org/x/time/rate"
-	"os"
 )
 
 func main() {
