@@ -1,7 +1,6 @@
 ---
 title: "Deploying an AKS Cluster Using Terraform"
-date: "2023-03-13"
-author: "Javier Roberts"
+date: 2023-03-13T14:10:29-03:00
 tags:
   - development
   - devops
@@ -9,12 +8,10 @@ tags:
 categories:
   - tech
 draft: false
-summary: "A detailed breakdown on how to deploy an AKS cluster using Terraform."
+summary: A detailed breakdown on how to deploy an AKS cluster using Terraform.
 ---
 
-# Deploying an AKS Cluster Using Terraform
-
-Hello and welcome to this blog post! In this post, we will be exploring how to use Terraform to deploy an AKS cluster in just a few easy steps. By the end of this post, you will have a fully functional AKS cluster up and running, ready to deploy your applications and services. So, let's get started!
+In this post, I will be exploring how to use Terraform to deploy an AKS cluster in just a few easy steps. By the end of this post, you will have a fully functional AKS cluster up and running, ready to deploy your applications and services.
 
 ## Requirements
 
@@ -343,8 +340,6 @@ az aks get-credentials --resource-group $TF_VAR_RESOURCE_GROUP_NAME --name $TF_V
 
 ## Closing statement
 
-So far we've created a cluster and configured everything with terraform. In the next post we will install ArgoCD and create some CI/CD pipelines implementing GitOps methodology.
+So far we've created a cluster and configured everything with terraform. In following posts we will install ArgoCD and create some CI/CD pipelines implementing GitOps methodology.
 
-Thanks for reading this post! If you liked it or want to contact me, give me a follow in any of my social media or shoot me an email.
-
-See you in the next one!
+Thanks for reading. If you liked it or want to contact me, give me a follow in any of my social media or shoot me an email.
