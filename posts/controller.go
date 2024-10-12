@@ -61,7 +61,7 @@ func loadPostList(dir string) (error, []Post) {
 	}
 
 	sort.Slice(ps, func(i, j int) bool {
-		return ps[i].Date.Before(ps[j].Date)
+		return ps[i].Date.After(ps[j].Date)
 	})
 
 	return nil, ps
