@@ -1,14 +1,13 @@
 {{define "list"}}
 <div class="mt-6 flex flex-col items-center justify-center">
-    <ul class="w-2/5">
+    <ul class="lg:w-3/5 xl:w-2/5">
         {{range .List}}
         <a href="/posts/{{.Slug}}">
             <li class="mb-3 px-4 py-2 rounded-md hover:bg-slate-100">
-                <span class="flex flex-row items-center justify-between">
+                <span class="flex flex-col items-left lg:flex-row lg:items-center lg:justify-between">
                     <h1 class="text-lg font-medium">{{.Title}}</h1>
                     <pre class="text-xs font-light text-slate-700">{{.Date}}</pre>
                 </span>
-                <p class="font-light">{{.Summary}}</p>
             </li>
         </a>
         {{end}}
