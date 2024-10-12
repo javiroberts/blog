@@ -1,5 +1,5 @@
 ---
-title: "Using an Outliner"
+title: "Using an outliner"
 date: 2024-09-10T22:06:08-03:00
 tags:
 categories:

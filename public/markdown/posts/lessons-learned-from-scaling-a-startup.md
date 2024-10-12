@@ -1,5 +1,5 @@
 ---
-title: "Lessons Learned From Scaling a Startup"
+title: "Lessons learned from scaling a startup"
 date: 2023-04-27T17:53:10-03:00
 tags:
   - career

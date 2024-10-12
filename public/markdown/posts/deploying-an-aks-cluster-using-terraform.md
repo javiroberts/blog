@@ -1,5 +1,5 @@
 ---
-title: "Deploying an AKS Cluster Using Terraform"
+title: "Deploying an AKS cluster using Terraform"
 date: 2023-03-13T14:10:29-03:00
 tags:
   - development

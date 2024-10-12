@@ -1,5 +1,5 @@
 ---
-title: "Online Code Interviews"
+title: "Online code interviews"
 date: 2024-04-29T20:01:18-03:00
 tags:
   - career
