@@ -3,18 +3,19 @@ package posts
 import (
 	"blog/markdown"
 	"html/template"
+	"time"
 
 	yaml2 "gopkg.in/yaml.v3"
 )
 
 type Post struct {
-	Title      string   `yaml:"title"`
-	Date       string   `yaml:"date"`
-	Author     string   `yaml:"author"`
-	Tags       []string `yaml:"tags"`
-	Categories []string `yaml:"categories"`
-	Draft      bool     `yaml:"draft"`
-	Summary    string   `yaml:"summary"`
+	Title      string    `yaml:"title"`
+	Date       time.Time `yaml:"date"`
+	Author     string    `yaml:"author"`
+	Tags       []string  `yaml:"tags"`
+	Categories []string  `yaml:"categories"`
+	Draft      bool      `yaml:"draft"`
+	Summary    string    `yaml:"summary"`
 	Slug       string
 	Article    template.HTML
 }

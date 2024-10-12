@@ -6,6 +6,7 @@ import (
 	"net/http"
 	"os"
 	"path/filepath"
+	"sort"
 
 	"github.com/labstack/echo/v4"
 )
@@ -58,5 +59,10 @@ func loadPostList(dir string) (error, []Post) {
 		p.WithMarkdown(f)
 		ps = append(ps, p)
 	}
+
+	sort.Slice(ps, func(i, j int) bool {
+		return ps[i].Date.Before(ps[j].Date)
+	})
+
 	return nil, ps
 }
