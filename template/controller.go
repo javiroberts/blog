@@ -1,9 +1,10 @@
 package template
 
 import (
-	"github.com/labstack/echo/v4"
 	"html/template"
 	"io"
+
+	"github.com/labstack/echo/v4"
 )
 
 func (t *Template) Render(w io.Writer, name string, data interface{}, c echo.Context) error {

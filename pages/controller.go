@@ -14,7 +14,7 @@ func GetAboutPage(c echo.Context) error {
 	slug := "about"
 	err, page := loadPage(dir, slug)
 	if err != nil {
-		return err
+		return echo.NewHTTPError(http.StatusNotFound)
 	}
 	return c.Render(http.StatusOK, "about", PageSchema{Page: page})
 }

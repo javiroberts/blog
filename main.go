@@ -2,6 +2,8 @@ package main
 
 import (
 	"blog/template"
+	"fmt"
+	"net/http"
 	"os"
 
 	"github.com/labstack/echo/v4"
@@ -24,23 +26,22 @@ func main() {
 		LogStatus: true,
 		LogURI:    true,
 		LogValuesFunc: func(c echo.Context, v middleware.RequestLoggerValues) error {
-			if v.Error == nil {
-				logger.Info().
-					Str("URI", v.URI).
-					Int("status", v.Status).
-					Send()
-			} else {
-				logger.Error().
-					Str("URI", v.URI).
-					Int("status", v.Status).
-					Msg(v.Error.Error())
-			}
+			fmt.Println("this is not an error")
+			logger.Info().
+				Str("URI", v.URI).
+				Int("status", v.Status).
+				Send()
 			return nil
 		},
 	}))
 
 	e.HTTPErrorHandler = func(err error, c echo.Context) {
-
+		code := http.StatusInternalServerError
+		if he, ok := err.(*echo.HTTPError); ok {
+			code = he.Code
+		}
+		c.Logger().Error(err)
+		c.Render(code, "error", err)
 	}
 
 	template.NewTemplateRenderer(e, "public/templates/**/*.gohtml")

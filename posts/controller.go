@@ -16,7 +16,7 @@ func GetPost(c echo.Context) error {
 	slug := c.Param("slug")
 	err, post := loadPost(dir, slug)
 	if err != nil {
-		return echo.NewHTTPError(http.StatusInternalServerError, "Internal Server Error")
+		return echo.NewHTTPError(http.StatusNotFound)
 	}
 	return c.Render(http.StatusOK, "post", PostSchema{Post: post})
 }
@@ -24,7 +24,7 @@ func GetPost(c echo.Context) error {
 func GetPostList(c echo.Context) error {
 	err, postList := loadPostList("public/markdown/posts/")
 	if err != nil {
-		return echo.NewHTTPError(http.StatusInternalServerError, "Internal Server Error")
+		return echo.NewHTTPError(http.StatusInternalServerError)
 	}
 	return c.Render(http.StatusOK, "list", PostListSchema{List: postList})
 }
