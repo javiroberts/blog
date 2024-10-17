@@ -1,11 +1,9 @@
 ---
-title: "About"
+title: "About Me"
 date: 2023-02-24T13:20:59-03:00
 draft: false
 summary: "About me and this blog project."
 ---
-
-# About me
 
 I'm Javier, a Software Engineer from Cordoba, Argentina.
 

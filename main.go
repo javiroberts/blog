@@ -2,7 +2,6 @@ package main
 
 import (
 	"blog/template"
-	"fmt"
 	"net/http"
 	"os"
 
@@ -26,7 +25,6 @@ func main() {
 		LogStatus: true,
 		LogURI:    true,
 		LogValuesFunc: func(c echo.Context, v middleware.RequestLoggerValues) error {
-			fmt.Println("this is not an error")
 			logger.Info().
 				Str("URI", v.URI).
 				Int("status", v.Status).
